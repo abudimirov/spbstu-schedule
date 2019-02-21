@@ -69,7 +69,6 @@ var Faculty = React.createClass({
         
         return (
             <div className="faculty">
-                <h2 className="page__h2">{faculty.name}</h2>
 				<div className="breadcrumbs">
 						<a href="/"><i className="fa fa-home" aria-hidden="true"></i> Главная</a>
 						&nbsp;/&nbsp; 

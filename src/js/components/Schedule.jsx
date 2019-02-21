@@ -53,8 +53,6 @@ var Schedule = React.createClass({
             if (this.isCurrentGroup(groupId)) {
                 return (
                     <div className="schedule-page">
-                        {faculty.name && <h2 className="page__h2">{faculty.name}</h2>}
-                        {group.name && <h3 className="page__h3">Группа № {group.name}</h3>}
 						<div className="breadcrumbs">
 							<a href="/"><i className="fa fa-home" aria-hidden="true"></i> Главная</a>
 							&nbsp;/&nbsp;
@@ -62,6 +60,8 @@ var Schedule = React.createClass({
 							&nbsp;/&nbsp;
 							Группа №&nbsp;<span>{group.name}</span>
 						</div>
+                        {group.name && <h3 className="page__h3">Группа № {group.name}</h3>}
+
                         <div>Данные загружаются...</div>
 						
                     </div>
@@ -97,8 +97,8 @@ var Schedule = React.createClass({
                     <i className="fa fa-print" /> Печать
                 </a>
 
-                <h2 className="page__h2">{faculty.name}</h2>
-                <h3 className="page__h3">Группа № {group.name}</h3>
+
+
 				<div className="breadcrumbs">
 						<a href="/"><i className="fa fa-home" aria-hidden="true"></i> Главная</a>
 						&nbsp;/&nbsp;
@@ -106,6 +106,7 @@ var Schedule = React.createClass({
 						&nbsp;/&nbsp;
 						Группа №&nbsp;<span>{group.name}</span>
 				</div>
+                <h3 className="page__h3">Группа № {group.name}</h3>
 
                 <Week week={week} />
 
