@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Расписание занятий</title>
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/bundle.css">
+</head>
+<body class="page">
+<nav class="nav">
+	<a href="https://www.spbstu.ru/" class="nav__item">СПбПУ</a>
+	<a href="https://lk.spbstu.ru/" class="nav__item">Личный кабинет студента</a>
+	<a href="#" class="nav__item"><i class="fa fa-android" aria-hidden="true"></i>&nbsp;Приложение для Android</a>
+	<a href="#" class="nav__item"><i class="fa fa-apple" aria-hidden="true"></i>&nbsp;Приложение для iOS</a>
+</nav>
+<header class="page__header">
+    <a href="/" class="logo page__logo">
+        <img src="/img/logo.svg"
+             alt="Политехнический университет Петра Великого"
+             class="logo__img">
+    </a>
+
+    <h1 class="page__headline">Расписание занятий</h1>
+</header>
+<div id="rootPageContainer" class="page__container">${html}</div>
+<footer class="page__footer footer">
+    <p class="footer__item">
+        &copy; Санкт-Петербургский политехнический университет Петра Великого,
+        <a href="http://www.spbstu.ru/">www.spbstu.ru</a>
+    </p>
+
+    <p class="footer__item">
+        О любых ошибках и неточностях в расписании сообщайте, пожалуйста, по адресу <a href="mailto:ruz@spbstu.ru">ruz@spbstu.ru</a>
+    </p>
+</footer>
+<script>
+    window.__INITIAL_STATE__ = ${initialState};
+</script>
+<script src="/assets/bundle.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter33100091 = new Ya.Metrika({
+                    id:33100091,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/33100091" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55245252-4', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+@media print {
+    // fix box-shadow bug in chrome
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=174583
+    * {
+        box-shadow: none !important
+    }
+    
+    // walkaround for phantomjs dpi bug
+    // https://github.com/ariya/phantomjs/issues/12685
+    body {
+        zoom: 0.68;
+    }
+    
+    .page__header {
+        display: none
+    }
+    
+    .page__footer {
+        display: none
+    }
+    
+    .schedule-page {
+        margin: 0 auto
+    }
+    
+    table th tr td {
+        page-break-inside: avoid;
+    }
+    
+    .printBtn {
+        display: none !important
+    }
+    
+    .switcher {
+        display: none !important
+    }
+}
+
+.schedule-printable
+    border: #ccc solid 1px;
+    border-spacing: 0;
+    height: 100%;
+    
+    th
+        width: 16%;
+        font-size: 12pt
+        padding 10px 0
+        background #eee
+        border: #ddd solid 1px;
+        
+    .time_th
+        width: 4%;
+    .week_th
+        width: 2%;
+        
+    .time_td
+        color: #777;
+        font-size: 16pt;
+        padding: 5px
+        text-align: center;
+        
+    .week_td
+        min-height: 1em;
+        font-size: 14pt;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0.5em 0
+
+    td
+        border: #ddd solid 1px;
+        vertical-align: top;
+        margin 0
+        padding 0
+        height: 100%
+        overflow: auto;
+    .lessons
+        display: table
+        width: 100%
+        height: 100%
+    .row
+        display: table-row
+    .cell
+        display: table-cell
+        position: relative
+        margin 0
+        padding: 5px;
+    .even_week
+        background: #eee
+
+    .subject
+        font-size 16px
+        margin-bottom 5px
+        padding 0
+        color #325A46
+    .teacher
+        font-size: 12pt
+        color: #888
+        padding 0
+        margin 0
+        margin-bottom 25px
+        list-style-type none
+        font-size 11pt
+        a
+            text-decoration: none
+            color: #888
+        a:hover
+            text-decoration: underline
+        
+    .type
+        font-size: 12pt
+        font-style: italic
+        position: absolute
+        bottom: 4px
+        left: 5px
+    .small_place
+        font-size: 10pt
+    .place
+        font-size: 12pt
+        position: absolute
+        bottom: 5px
+        right: 5px
+        margin 0
+        padding 0
+        text-align right
+        list-style-type none
+        max-width 90%
+        text-decoration: none
+        a
+            text-decoration: none
+            color: black
+        a:hover
+            text-decoration: underline
+
+    .uncommon_time
+        margin-bottom: 5px
+        padding: 5px
+        background: #ffffe0
+
+$btn-color = #46c765
+.printBtn
+    float right
+    margin 0 15px
+    padding 10px 16px
+    cursor pointer
+    display block
+    font-size 12pt
+    text-decoration none
+    color #fff
+    background $btn-color
+    border-color $btn-color
+    
+    &:hover
+        background darken($btn-color, 20%)

@@ -1,0 +1,47 @@
+.tabbed-area
+  max-width 1400px
+  margin 20px auto
+  padding 20px
+
+  &__tabs
+    display block
+    overflow auto
+    list-style none
+    margin 25px
+    padding 0
+    border #E5E5E5 1px solid
+    border-radius 3px
+    box-shadow 0 1px 1px 0 rgba(#000, 0.16)
+    float left
+    
+    li
+      display block
+      float left
+
+    a
+      margin 0 0px
+      padding 10px 16px
+      cursor pointer
+      display block
+      font-size 16px
+      text-decoration none
+      color #707070
+      border 1px solid #ccc
+    
+    a.active, a.active:hover
+      background #46c765
+      border-color #46c765
+      color #fff
+    
+    a:hover
+      color #46c765
+
+  &__pane
+    margin 0
+    padding 30px
+    overflow hidden
+    border #E5E5E5 1px solid
+    border-radius 3px
+    box-shadow 0 1px 1px 0 rgba(#000, 0.16)
+    clear both
+

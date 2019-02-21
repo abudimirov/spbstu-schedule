@@ -1,0 +1,30 @@
+$btn-color = #4CAF50
+
+.pager
+  display flex
+  flex-wrap nowrap
+  justify-content center
+  align-items center
+  
+  padding 10px
+  margin 10px auto
+  
+  &__text
+    font-size 14pt
+
+  button
+    background-color white
+    border none
+    padding 5px
+    margin 10px
+    color $btn-color
+    text-decoration none
+    display inline-block
+    font-size 32px
+    outline none
+    
+  button:disabled
+    color #ccc
+  
+  button:hover:enabled
+    color darken($btn-color, 20%)
