@@ -86,13 +86,15 @@
   margin: 100px auto 0;
   border-top: solid 1px #eaeaea;
   box-shadow: 0 -1px -1px 0 rgba(0,0,0,0.16);
+  background: #105d3b;
 }
-.page__footer-item {
+.page__footer__item {
+  color: #fff;
   margin-bottom: 1em;
 }
 .page__footer a:link,
 .page__footer a:visited {
-  color: #325a46;
+  color: #fff;
 }
 .page__h2 {
   font-size: 1.5em;
@@ -206,6 +208,9 @@
   width: 4px;
   background: #21a649;
   animation: jump 0.3s forwards;
+}
+.faculty-list__link:visited {
+  color: #325a46;
 }
 .faculty {
   max-width: 1400px;
