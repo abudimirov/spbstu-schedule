@@ -27,7 +27,7 @@ var Day = React.createClass({
 
     render: function() {
         let week = this.props.week;
-        let ofset = -2;
+        let ofset = i;
         let nextDate = dateUtils.getNextWeekStartString(week);
         let CustomWeekStart = dateUtils.getCustomWeekStartString(week,ofset);
         let prevDate = dateUtils.getPrevWeekStartString(week);

@@ -11,8 +11,16 @@
       text-decoration underline
       color #46c765
 
+
+  &-item + &-item::before
+    font-family 'FontAwesome'
+    content " \f105" !important
+
+
 @media (max-width: 600px) {
   .breadcrumb {
     font-size: 0.7em;}
 
 }
+
+
