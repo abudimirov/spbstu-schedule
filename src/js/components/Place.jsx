@@ -1,10 +1,11 @@
 var React = require('react');
 var _ = require('lodash');
 var reactRedux = require('react-redux');
+var Header = require('./Header.jsx');
 var actions = require('../actions/PlaceActions');
 var Day = require('./Schedule/Day.jsx');
 var Week = require('./Schedule/Week.jsx');
-var Pager = require('./Schedule/Pager.jsx');
+var Pager = require('./Schedule/Pager_bkp.jsx');
 var LessonsList = require('./Schedule/LessonsList.jsx');
 
 var Place = React.createClass({
@@ -43,6 +44,7 @@ var Place = React.createClass({
         if (this.props.isFetching) {
             return (
                 <div className="schedule-page">
+                    <Header />
                     <div>Данные загружаются...</div>
                 </div>
             )
@@ -51,6 +53,7 @@ var Place = React.createClass({
         if (! place) {
             return (
                 <div className="schedule-page">
+                    <Header />
                     <div>Данные загружаются...</div>
                 </div>
             )
@@ -58,10 +61,15 @@ var Place = React.createClass({
 
         return (
             <div className="schedule-page">
-                <h2 className="page__h2">
-                    {place.building && <span>{place.building.name}, {place.building.address} </span> }
-                    {place.name && <span>ауд. {place.name}</span> }
-                </h2>
+                <Header />
+                <div className="row">
+                    <div className="col-md-12">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/"><i className="fa fa-university"></i></a></li>
+                            <li className="breadcrumb-item active"><span>{place.building.name}, ауд. {place.name}</span></li>
+                        </ol>
+                    </div>
+                </div>
 
                 <Week week={week} />
 

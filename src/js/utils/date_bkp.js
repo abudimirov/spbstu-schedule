@@ -20,18 +20,6 @@ function getPrevWeekStart(week) {
     return prevWeekStartDate;
 }
 
-function getCustomWeekStart(week, ofset) {
-    if (! week) {
-        throw new Error('Argument week should be passed');
-    }
-
-    var dateArray = week.date_start.split('.');
-    var prevWeekStartDate = new Date(dateArray[0], dateArray[1] - 1, dateArray[2]);
-    prevWeekStartDate.setHours(24 * 7 * (ofset));
-
-    return prevWeekStartDate;
-}
-
 function getNextWeekStart(week) {
     if (! week) {
         throw new Error('Argument week should be passed');
@@ -54,12 +42,6 @@ function getPrevWeekStartString(week) {
     return dateToString(prevWeekStartDate);
 }
 
-function getCustomWeekStartString(week, ofset) {
-    var customWeekStartDate = getCustomWeekStart(week, ofset);
-
-    return dateToString(customWeekStartDate);
-}
-
 function getNextWeekStartString(week) {
     var nextWeekStartDate = getNextWeekStart(week);
 
@@ -70,10 +52,6 @@ function humanDate(date) {
     return moment(date, "YYYY.MM.DD").format("DD MMMM");
 }
 
-
-function humanDate_pager(date) {
-    return moment(date, "YYYY.MM.DD").format("DD MM");
-}
 
 function getWeek(str) {
     if(str) {
@@ -109,12 +87,9 @@ function nearestCommonTime(string) {
 module.exports = {
     getNextWeekStart: getNextWeekStart,
     getNextWeekStartString: getNextWeekStartString,
-    getCustomWeekStart: getCustomWeekStart,
-    getCustomWeekStartString: getCustomWeekStartString,
     getPrevWeekStart: getPrevWeekStart,
     getPrevWeekStartString: getPrevWeekStartString,
     humanDate: humanDate,
-    humanDate_pager: humanDate_pager,
     getWeek,
     qString,
     dString,

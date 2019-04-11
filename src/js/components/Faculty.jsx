@@ -2,9 +2,11 @@ var React = require('react');
 var _ = require('lodash');
 var reactRedux = require('react-redux');
 var actions = require('../actions/FacultyActions');
+var Header = require('./Header.jsx');
 var Groups = require('./Groups.jsx');
 var GroupTypes = require('./GroupTypes.jsx');
 var EducationTypes = require('./EducationTypes.jsx');
+
 
 var Faculty = React.createClass({
     componentWillMount: function () {
@@ -50,6 +52,7 @@ var Faculty = React.createClass({
         if (this.props.isFetching && faculty) {
             return (
                 <div className="faculty">
+                    <Header />
                     <h2 className="page__h2">{faculty.name}</h2>
                     <div>Данные загружаются...</div>
                 </div>
@@ -59,6 +62,7 @@ var Faculty = React.createClass({
         if (!faculty) {
             return (
                 <div className="faculty">
+                    <Header />
                     <div>Данные загружаются...</div>
                 </div>
             )
@@ -69,11 +73,16 @@ var Faculty = React.createClass({
         
         return (
             <div className="faculty">
-				<div className="breadcrumbs">
-						<a href="/"><i className="fa fa-home" aria-hidden="true"></i> Главная</a>
-						&nbsp;/&nbsp; 
-						<span>{faculty.name}</span>
-				</div>
+                <Header />
+                <div className="row">
+                    <div className="col-md-12">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/"><i className="fa fa-university"></i></a></li>
+                            <li className="breadcrumb-item active">{faculty.name}</li>
+                        </ol>
+                    </div>
+                </div>
+
                 <div className="tabs-area">
                     <GroupTypes faculty={this.props.facultyId} />
                     <EducationTypes faculty={this.props.facultyId}  />

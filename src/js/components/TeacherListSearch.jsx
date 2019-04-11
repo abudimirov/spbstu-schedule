@@ -1,5 +1,6 @@
 var React = require('react');
 var reactRedux = require('react-redux');
+var Header = require('./Header.jsx');
 var actions = require('../actions/SearchActions');
 var TeachersList = require('./Search/TeachersList.jsx');
 var SearchForm = require('./Search/SearchForm.jsx');
@@ -19,7 +20,6 @@ var TeacherListSearch = React.createClass({
     render: function() {
         let teachers = this.props.teachers;
         let searchResult = ''
-
         if (this.props.isFetching) {
             searchResult = <div>Данные загружаются...</div>
         } else {
@@ -32,7 +32,7 @@ var TeacherListSearch = React.createClass({
 
         return (
             <div className="schedule-page">
-                <SearchForm init_searchString={this.props.location.query.q} init_searchType='teacher' />
+                <Header />
                 <h3>Результат поиска:</h3>
                 {searchResult}
             </div>

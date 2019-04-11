@@ -2,8 +2,9 @@ var React = require('react');
 var _ = require('lodash');
 var reactRedux = require('react-redux');
 var actions = require('../actions/FacultyActions');
+var Header = require('./Header.jsx');
 var Week = require('./Schedule/Week.jsx');
-var Pager = require('./Schedule/Pager.jsx');
+var Pager = require('./Schedule/Pager_bkp.jsx');
 var LessonsList = require('./Schedule/LessonsList.jsx');
 var Link = require('react-router').Link;
 var du = require('../utils/date')
@@ -53,13 +54,16 @@ var Schedule = React.createClass({
             if (this.isCurrentGroup(groupId)) {
                 return (
                     <div className="schedule-page">
-						<div className="breadcrumbs">
-							<a href="/"><i className="fa fa-home" aria-hidden="true"></i> Главная</a>
-							&nbsp;/&nbsp;
-							<a href={`/faculty/${faculty.id}/groups/`}>{faculty.name}</a>
-							&nbsp;/&nbsp;
-							Группа №&nbsp;<span>{group.name}</span>
-						</div>
+                        <Header />
+                        <div className="row">
+                            <div className="col-md-12">
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item"><a href="/"><i className="fa fa-university"></i></a></li>
+                                    <li className="breadcrumb-item"><a href={`/faculty/${faculty.id}/groups/`}>{faculty.name}</a></li>
+                                    <li className="breadcrumb-item active">Группа №&nbsp;<span>{group.name}</span></li>
+                                </ol>
+                            </div>
+                        </div>
                         {group.name && <h3 className="page__h3">Группа № {group.name}</h3>}
 
                         <div>Данные загружаются...</div>
@@ -69,6 +73,7 @@ var Schedule = React.createClass({
             } else {
                 return (
                     <div className="schedule-page">
+                        <Header />
                         {faculty.name && <h2 className="page__h2">{faculty.name}</h2>}
                         <div>Данные загружаются...</div>
                     </div>
@@ -80,6 +85,8 @@ var Schedule = React.createClass({
         if (!faculty || !group || !week) {
             return (
                 <div className="schedule-page">
+                    <Header />
+                    {faculty.name && <h2 className="page__h2">{faculty.name}</h2>}
                     <div>Данные загружаются...</div>
                 </div>
             )
@@ -87,28 +94,32 @@ var Schedule = React.createClass({
         
         return (
             <div className="schedule-page">
-                <a href={`/faculty/${faculty.id}/groups/${group.id}/print?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
-                    <i className="fa fa-th" /> Сетка
-                </a>
-                <a href={`/faculty/${faculty.id}/groups/${group.id}/ical?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
-                    <i className="fa fa-calendar" /> iCal
-                </a>
-                <a href={`/faculty/${faculty.id}/groups/${group.id}/pdf?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
-                    <i className="fa fa-print" /> Печать
-                </a>
-
-
-
-				<div className="breadcrumbs">
-						<a href="/"><i className="fa fa-home" aria-hidden="true"></i> Главная</a>
-						&nbsp;/&nbsp;
-						<a href={`/faculty/${faculty.id}/groups/`}>{faculty.name}</a>
-						&nbsp;/&nbsp;
-						Группа №&nbsp;<span>{group.name}</span>
-				</div>
-                <h3 className="page__h3">Группа № {group.name}</h3>
-
-                <Week week={week} />
+                <Header />
+                <div className="row">
+                    <div className="col-md-12">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/"><i className="fa fa-university"></i></a></li>
+                            <li className="breadcrumb-item"><a href={`/faculty/${faculty.id}/groups/`}>{faculty.name}</a></li>
+                            <li className="breadcrumb-item active">Группа №&nbsp;<span>{group.name}</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-xs-12 col-md-6">
+                        <Week week={week} />
+                    </div>
+                    <div className="d-none d-sm-none d-md-block col-md-6">
+                        <a href={`/faculty/${faculty.id}/groups/${group.id}/print?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
+                            <i className="fa fa-th" /> Сетка
+                        </a>
+                        <a href={`/faculty/${faculty.id}/groups/${group.id}/ical?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
+                            <i className="fa fa-calendar" /> iCal
+                        </a>
+                        <a href={`/faculty/${faculty.id}/groups/${group.id}/pdf?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
+                            <i className="fa fa-print" /> Печать
+                        </a>
+                    </div>
+                </div>
 
                 <Pager week={week} link={pagerLink} />
 
@@ -116,6 +127,7 @@ var Schedule = React.createClass({
 
                 <Pager week={week} link={pagerLink} />
             </div>
+
         )
     }
 });

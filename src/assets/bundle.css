@@ -32,12 +32,13 @@
   padding: 0;
   color: #464646;
 }
+.page a:hover {
+  text-decoration: none;
+}
 .page__header {
   max-width: 1400px;
   padding: 0 22px;
   margin: 0 auto;
-  border-bottom: solid 1px #eaeaea;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16);
 }
 .page__header:before,
 .page__header:after {
@@ -81,8 +82,8 @@
 }
 .page__footer {
   font-size: 13px;
-  max-width: 1400px;
-  padding: 0 22px 40px;
+  max-width: 100%;
+  padding: 22px 40px;
   margin: 100px auto 0;
   border-top: solid 1px #eaeaea;
   box-shadow: 0 -1px -1px 0 rgba(0,0,0,0.16);
@@ -95,6 +96,9 @@
 .page__footer a:link,
 .page__footer a:visited {
   color: #fff;
+}
+.page__footer a:hover {
+  text-decoration: underline;
 }
 .page__h2 {
   font-size: 1.5em;
@@ -164,6 +168,12 @@
   height: 4px;
   background: #21a649;
   animation: jump-horizontal 0.3s forwards;
+}
+@media (max-width: 600px) {
+  .switcher__link {
+    padding: 12px 10px;
+    font-size: 0.6em;
+  }
 }
 .faculty-list {
   max-width: 1400px;
@@ -258,6 +268,15 @@
   background: #21a649;
   animation: jump-horizontal 0.3s forwards;
 }
+@media (max-width: 600px) {
+  .groups-list {
+    text-align: center;
+  }
+  .groups-list__item {
+    min-width: 110px;
+    text-align: center;
+  }
+}
 .schedule-page {
   max-width: 1400px;
   margin: 20px auto;
@@ -300,6 +319,15 @@
   border: #e5e5e5 1px solid;
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16);
+}
+@media (max-width: 600px) {
+  .schedule__date {
+    width: 50px;
+    text-align: left;
+  }
+  .schedule__lessons {
+    margin-left: 50px;
+  }
 }
 .lesson {
   padding: 12px 20px;
@@ -352,10 +380,20 @@
 }
 .lesson__link {
   color: #999;
+  text-decoration: underline;
   transition: color 0.3s;
 }
 .lesson__link:hover {
   color: #000;
+}
+@media (max-width: 600px) {
+  .lesson__params {
+    font-size: 0.8em;
+    margin-left: 10px;
+  }
+  .lesson__time {
+    float: none;
+  }
 }
 .lesson-groups_with-additional .lesson-groups__additional {
   display: block;
@@ -456,6 +494,21 @@
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.16);
   clear: both;
 }
+@media (max-width: 600px) {
+  .tabbed-area__pane {
+    padding: 0px;
+    border: none;
+    box-shadow: none;
+  }
+  .tabbed-area__tabs {
+    margin: 0 0 20px;
+    width: 100%;
+  }
+  .tabbed-area__tabs a {
+    border: none;
+    padding: 5px;
+  }
+}
 .search-area {
   margin-bottom: 30px;
   padding: 10px;
@@ -469,7 +522,7 @@
 .search-area__input {
   outline: none;
   float: left;
-  width: 80%;
+  width: 75%;
   max-width: 1400px;
   padding: 10px;
   margin: 10px;
@@ -491,7 +544,6 @@
 .search-area .search-type {
   clear: both;
   padding: 10px;
-  padding-left: 100px;
 }
 .search-area .search-type label {
   padding-left: 15px;
@@ -499,6 +551,14 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.search-area input[type="radio"] {
+  margin: 0 5px;
+}
+@media (max-width: 600px) {
+  .search-area {
+    margin-bottom: 0px;
+  }
 }
 .pager {
   display: -ms-flexbox;
@@ -685,23 +745,23 @@
 .printBtn:hover {
   background: #32a54e;
 }
-.breadcrumbs {
-  margin: 0;
-  padding: 0;
+.breadcrumb {
+  border: #e5e5e5 1px solid;
+  background: none;
 }
-.breadcrumbs a:link,
-a:visited {
-  text-decoration: none;
-  color: #707070;
+.breadcrumb a:link,
+.breadcrumb a:visited {
+  text-decoration: underline;
+  color: #21a649;
 }
-.breadcrumbs a.active,
-a.active:hover {
-  background: #46c765;
-  border-color: #46c765;
-  color: #fff;
-}
-.breadcrumbs a:hover {
+.breadcrumb a:hover {
+  text-decoration: underline;
   color: #46c765;
+}
+@media (max-width: 600px) {
+  .breadcrumb {
+    font-size: 0.7em;
+  }
 }
 .nav {
   margin: 0;

@@ -23,17 +23,16 @@ var SearchForm = React.createClass({
     render: function() {
         return (
             <form className='search-area' onSubmit={this.handleSearch}>
-                <span className='search-area__title'>Поиск:</span>
-                <input className='search-area__input' type="text" value={this.state.searchString} onChange={e => this.setState({searchString: e.target.value})} />
+                <input className='search-area__input' placeholder="Поиск" type="text" value={this.state.searchString} onChange={e => this.setState({searchString: e.target.value})} />
                 <button className='search-area__button' type='submit' ><i className="fa fa-search" /></button>
                 <div className='search-type'>
                     <label>
                         <input type='radio' checked={this.state.searchType === 'group'}  onClick={e => this.setState({searchType: 'group'})} readOnly />
-                        по группе
+                        &nbsp;по группе
                     </label>
                     <label>
                         <input type='radio' checked={this.state.searchType === 'teacher'}  onClick={e => this.setState({searchType: 'teacher'})} readOnly />
-                        по преподавателю
+                        &nbsp;по преподавателю
                     </label>
                 </div>
             </form>

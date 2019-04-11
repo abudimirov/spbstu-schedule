@@ -1,6 +1,7 @@
 var React = require('react');
 var _ = require('lodash');
 var reactRedux = require('react-redux');
+var Header = require('./Header.jsx');
 var actions = require('../actions/SearchActions');
 var Link = require('react-router').Link;
 var SearchForm = require('./Search/SearchForm.jsx');
@@ -42,7 +43,7 @@ var GroupListSearch = React.createClass({
 
         return (
             <div className="schedule-page">
-                <SearchForm init_searchString={this.props.location.query.q} init_searchType='group'/>
+                <Header />
                 <h3>Результат поиска:</h3>
                 {searchResult}
             </div>

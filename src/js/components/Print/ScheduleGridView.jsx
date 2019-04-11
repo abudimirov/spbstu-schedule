@@ -2,10 +2,11 @@ var React = require('react');
 var ReactDOM = require('react-dom')
 var _ = require('lodash');
 var reactRedux = require('react-redux');
+var Header = require('../../components/Header.jsx');
 var actions = require('../../actions/FacultyActions');
 var LessonsTablePdf = require('../Print/LessonsTablePdf.jsx');
 var du = require('../../utils/date')
-var Pager = require('../Schedule/Pager.jsx')
+var Pager = require('../Schedule/Pager_bkp.jsx')
 
 var ScheduleGridView = React.createClass({
     componentWillMount: function () {
@@ -143,6 +144,7 @@ var ScheduleGridView = React.createClass({
     renderLoading: function() {
         return (
             <div className="schedule-page">
+                <Header />
                 <div>Данные загружаются...</div>
             </div>
         )
@@ -190,16 +192,24 @@ var ScheduleGridView = React.createClass({
 
         return (
             <div className="schedule-page">
-                {this.renderHeader(data)}
-                <a href={listLink} className="printBtn">
-                    <i className="fa fa-th-list" /> Список
-                </a>
-                <a href={calLink} className="printBtn">
-                    <i className="fa fa-calendar" /> iCal
-                </a>
-                <a href={printLink} className="printBtn">
-                    <i className="fa fa-print" /> Печать
-                </a>
+                <Header />
+
+
+                        {this.renderHeader(data)}
+
+
+                        <a href={listLink} className="printBtn">
+                            <i className="fa fa-th-list" /> Список
+                        </a>
+                        <a href={calLink} className="printBtn">
+                            <i className="fa fa-calendar" /> iCal
+                        </a>
+                        <a href={printLink} className="printBtn">
+                            <i className="fa fa-print" /> Печать
+                        </a>
+
+
+
                 
                 <Pager week={week} link={pagerLink} />
                 <LessonsTablePdf lessons={data.weeks} showGroups={Boolean(this.props.teacherId)} />

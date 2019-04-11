@@ -1,6 +1,7 @@
 var React = require('react');
 var reactRedux = require('react-redux');
 var actions = require('../actions/FacultyActions');
+var Header = require('./Header.jsx');
 var SearchForm = require('./Search/SearchForm.jsx');
 var Faculties = require('./Faculties.jsx');
 
@@ -22,7 +23,7 @@ var FacultyList = React.createClass({
             <div>{
                 this.props.faculties &&
                 <div className="faculty-list">
-                    <SearchForm />
+                    <Header />
                     <Faculties faculties={this.props.faculties} />
                 </div>
             }</div>

@@ -1,10 +1,11 @@
 var React = require('react');
 var _ = require('lodash');
 var reactRedux = require('react-redux');
+var Header = require('./Header.jsx');
 var actions = require('../actions/TeacherActions');
 var Day = require('./Schedule/Day.jsx');
 var Week = require('./Schedule/Week.jsx');
-var Pager = require('./Schedule/Pager.jsx');
+var Pager = require('./Schedule/Pager_bkp.jsx');
 var LessonsList = require('./Schedule/LessonsList.jsx');
 var du = require('../utils/date')
 
@@ -40,6 +41,8 @@ var Teacher = React.createClass({
         if (this.props.isFetching) {
             return (
                 <div className="schedule-page">
+                    <Header />
+                    {teacher.full_name && <h2 className="page__h2">{teacher.full_name}</h2>}
                     <div>Данные загружаются...</div>
                 </div>
             )
@@ -48,6 +51,8 @@ var Teacher = React.createClass({
         if (! teacher || ! week) {
             return (
                 <div className="schedule-page">
+                    <Header />
+                    {teacher.full_name && <h2 className="page__h2">{teacher.full_name}</h2>}
                     <div>Данные загружаются...</div>
                 </div>
             )
@@ -55,19 +60,32 @@ var Teacher = React.createClass({
 
         return (
             <div className="schedule-page">
-                <a href={`/teachers/${teacher.id}/print?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
-                    <i className="fa fa-th" /> Сетка
-                </a>
-                <a href={`/teachers/${teacher.id}/ical?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
-                    <i className="fa fa-calendar" /> iCal
-                </a>
-                <a href={`/teachers/${teacher.id}/pdf?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
-                    <i className="fa fa-print" /> Печать
-                </a>
+                <Header />
+                <div className="row">
+                    <div className="col-md-12">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/"><i className="fa fa-university"></i></a></li>
+                            <li className="breadcrumb-item active"><span>{teacher.full_name}</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-xs-12 col-md-6">
+                        <Week week={week} />
+                    </div>
+                    <div className="d-none d-sm-none d-md-block col-md-6">
+                        <a href={`/teachers/${teacher.id}/print?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
+                            <i className="fa fa-th" /> Сетка
+                        </a>
+                        <a href={`/teachers/${teacher.id}/ical?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
+                            <i className="fa fa-calendar" /> iCal
+                        </a>
+                        <a href={`/teachers/${teacher.id}/pdf?date=${du.qString(du.getWeek(week.date_start))}`} className="printBtn">
+                            <i className="fa fa-print" /> Печать
+                        </a>
+                    </div>
+                </div>
 
-                <h2 className="page__h2">{teacher.full_name}</h2>
-
-                <Week week={week} />
 
                 <Pager week={week} link={pagerLink} />
 

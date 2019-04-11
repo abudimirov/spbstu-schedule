@@ -4,35 +4,37 @@
     <meta charset="UTF-8">
     <title>Расписание занятий</title>
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/bundle.css">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body class="page">
-<nav class="nav">
-	<a href="https://www.spbstu.ru/" class="nav__item">СПбПУ</a>
-	<a href="https://lk.spbstu.ru/" class="nav__item">Личный кабинет студента</a>
-	<a href="#" class="nav__item"><i class="fa fa-android" aria-hidden="true"></i>&nbsp;Приложение для Android</a>
-	<a href="#" class="nav__item"><i class="fa fa-apple" aria-hidden="true"></i>&nbsp;Приложение для iOS</a>
-</nav>
-<header class="page__header">
-    <a href="/" class="logo page__logo">
-        <img src="/img/logo.svg"
-             alt="Политехнический университет Петра Великого"
-             class="logo__img">
-    </a>
-
-    <h1 class="page__headline">Расписание занятий</h1>
-</header>
 <div id="rootPageContainer" class="page__container">${html}</div>
 <footer class="page__footer footer">
-    <p class="page__footer__item">
-        &copy; Санкт-Петербургский политехнический университет Петра Великого,
-        <a href="http://www.spbstu.ru/">www.spbstu.ru</a>
-    </p>
+    <div class="container">
+        <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="row page__footer__item"><a href="https://www.spbstu.ru/" class="nav__item">СПбПУ</a></div>
+                    <div class="row page__footer__item"><a href="https://lk.spbstu.ru/" class="nav__item">Личный кабинет студента</a></div>
+                    <div class="row page__footer__item"><a href="#" class="nav__item"><i class="fa fa-android" aria-hidden="true"></i>&nbsp;Приложение для Android</a></div>
+                    <div class="row page__footer__item"><a href="#" class="nav__item"><i class="fa fa-apple" aria-hidden="true"></i>&nbsp;Приложение для iOS</a></div>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <p class="page__footer__item">
+                        &copy; Санкт-Петербургский политехнический университет Петра Великого,
+                        <a href="http://www.spbstu.ru/">www.spbstu.ru</a>
+                    </p>
+                    <p class="page__footer__item">
+                        О любых ошибках и неточностях в расписании сообщайте, пожалуйста, по адресу <a href="mailto:ruz@spbstu.ru">ruz@spbstu.ru</a>
+                    </p>
+                </div>
+        </div>
+    </div>
 
-    <p class="page__footer__item">
-        О любых ошибках и неточностях в расписании сообщайте, пожалуйста, по адресу <a href="mailto:ruz@spbstu.ru">ruz@spbstu.ru</a>
-    </p>
 </footer>
 <script>
     window.__INITIAL_STATE__ = ${initialState};

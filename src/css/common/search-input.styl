@@ -11,7 +11,7 @@
   &__input
     outline none
     float left
-    width 80%
+    width 75%
     max-width 1400px
     padding 10px
     margin 10px
@@ -33,9 +33,17 @@
   .search-type
     clear both
     padding 10px
-    padding-left 100px
     
     label
       padding-left 15px
       user-select none
-    
+
+  input[type="radio"] {
+    margin: 0 5px;
+  }
+
+@media (max-width: 600px) {
+    .search-area {
+      margin-bottom: 0px;}
+
+}

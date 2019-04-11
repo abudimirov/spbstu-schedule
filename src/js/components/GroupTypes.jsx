@@ -3,6 +3,7 @@ var React = require('react');
 var reactRedux = require('react-redux');
 var actions = require('../actions/FacultyActions');
 
+
 const groupTypes = {
     common: "Очная",
     evening: "Очно-заочная",
