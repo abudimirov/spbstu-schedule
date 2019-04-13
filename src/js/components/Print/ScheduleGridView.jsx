@@ -132,7 +132,7 @@ var ScheduleGridView = React.createClass({
             return _.get(this.props, ['data', 'teachers', this.props.teacherId, 'weeks', dateString, 'week']);
         }
     },
-    
+
     renderHeader: function(data) {
         if (this.props.groupId) {
             return <h3 className="page__h3">{data.faculty.abbr} Группа № {data.group.name} расписание с {this.from()} по {this.to()}</h3>
@@ -140,11 +140,20 @@ var ScheduleGridView = React.createClass({
             return <h3 className="page__h3">{data.teacher.full_name}, расписание с {this.from()} по {this.to()}</h3>
         }
     },
+
+    renderBreadcrumbs: function(data) {
+        if (this.props.groupId) {
+            return <li className="breadcrumb-item active">{data.group.name} расписание с {this.from()} по {this.to()}</li>
+        } else if(this.props.teacherId) {
+            return <li className="breadcrumb-item active">{data.teacher.full_name}, расписание с {this.from()} по {this.to()}</li>
+        }
+    },
     
     renderLoading: function() {
         return (
             <div className="schedule-page">
                 <Header />
+
                 <div>Данные загружаются...</div>
             </div>
         )
@@ -193,6 +202,14 @@ var ScheduleGridView = React.createClass({
         return (
             <div className="schedule-page">
                 <Header />
+                <div className="row">
+                    <div className="col-md-12">
+                        <ol className="breadcrumb">
+                            <li className="breadcrumb-item"><a href="/"><i className="fa fa-university"></i></a></li>
+                            {this.renderBreadcrumbs(data)}
+                        </ol>
+                    </div>
+                </div>
 
 
                         {this.renderHeader(data)}
